@@ -16,7 +16,7 @@ services:
       MYSQL_PASSWORD: Changeme  # change!
   semaphore:
     container_name: ansiblesemaphore
-    
+    user: "${UID}:${GID}"
     ports:
       - 3000:3000
     image: semaphoreui/semaphore:latest
@@ -43,3 +43,4 @@ services:
       - mysql
 volumes:
   semaphore-mysql:
+    driver: local
